@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent } from '../testUtils'
+import { render } from '../testUtils'
 import { Home } from '../../pages/index'
 
 describe('Home page', () => {
@@ -8,10 +8,8 @@ describe('Home page', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('clicking button triggers alert', () => {
+  it('renders hello world', () => {
     const { getByText } = render(<Home />, {})
-    window.alert = jest.fn()
-    fireEvent.click(getByText('Test Button'))
-    expect(window.alert).toHaveBeenCalledWith('With typescript and Jest')
+    expect(getByText('Hello world!'));
   })
 })
