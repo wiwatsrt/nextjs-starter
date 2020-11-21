@@ -37,6 +37,12 @@ module.exports = {
           900: '#161e2e',
         },
       },
+      boxShadow: (theme) => ({
+        focus: `0 0 0 3px ${rgba(theme('colors.primary.300'), '.45')}`,
+      }),
+      maxWidth: {
+        '7xl': '80rem',
+      },
       height: {
         96: '24rem',
       },
