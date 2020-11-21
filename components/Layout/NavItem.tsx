@@ -7,7 +7,7 @@ interface Props {
   href: string
 }
 
-export const SidebarLinkItem = ({ children, href }: Props) => {
+const NavItem = ({ children, href }: Props) => {
   const router = useRouter()
 
   const activeLinkClass = () => {
@@ -21,10 +21,12 @@ export const SidebarLinkItem = ({ children, href }: Props) => {
   return (
     <Link href={href}>
       <a
-        className={`${activeLinkClass()} mt-1 group flex items-center px-2 py-2 leading-6 font-medium rounded-md focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150`}
+        className={`${activeLinkClass()} mt-1 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150`}
       >
         {children}
       </a>
     </Link>
   )
 }
+
+export default NavItem

@@ -1,9 +1,10 @@
 import React from 'react'
-import { SidebarLink } from './SidebarLink'
 
-interface Props {}
+interface Props {
+  children: React.ReactNode
+}
 
-const Sidebar = (props: Props) => {
+const Sidebar = ({ children }: Props) => {
   return (
     <>
       <div className="hidden md:flex md:flex-shrink-0">
@@ -16,10 +17,7 @@ const Sidebar = (props: Props) => {
             />
           </div>
           <div className="h-0 flex-1 flex flex-col overflow-y-auto">
-            {/* Sidebar component, swap this element with another sidebar if you like */}
-            <nav className="flex-1 px-2 py-4 bg-gray-800">
-              <SidebarLink />
-            </nav>
+            {children}
           </div>
         </div>
       </div>
