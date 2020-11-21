@@ -1,15 +1,12 @@
-import Head from 'next/head'
+import React from 'react'
+import AppLayout from '../components/Layout/AppLayout'
 
 export const Home = (): JSX.Element => (
-  <div className="antialiased text-gray-900 flex items-center justify-center min-h-screen">
-    <Head>
-      <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-    <div>
-      <h1 className="text-5xl font-bold text-purple-500">Hello world!</h1>
+  <AppLayout header="Home">
+    <div className="py-4">
+      <div className="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
     </div>
-  </div>
+  </AppLayout>
 )
 
 export default Home
