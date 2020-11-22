@@ -5,9 +5,10 @@ import { useRouter } from 'next/router'
 interface Props {
   children: React.ReactNode
   href: string
+  textSize?: string
 }
 
-const NavItem = ({ children, href }: Props) => {
+const SidebarMenuItem = ({ children, href, textSize }: Props) => {
   const router = useRouter()
 
   const activeLinkClass = () => {
@@ -18,10 +19,14 @@ const NavItem = ({ children, href }: Props) => {
     }
   }
 
+  const textSizeClass = () => {
+    return textSize === 'sm' ? ' text-sm' : ''
+  }
+
   return (
     <Link href={href}>
       <a
-        className={`${activeLinkClass()} mt-1 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150`}
+        className={`${activeLinkClass()}${textSizeClass()} mt-1 group flex items-center px-2 py-2  leading-6 font-medium rounded-md focus:outline-none focus:text-white focus:bg-gray-700 transition ease-in-out duration-150`}
       >
         {children}
       </a>
@@ -29,4 +34,4 @@ const NavItem = ({ children, href }: Props) => {
   )
 }
 
-export default NavItem
+export default SidebarMenuItem

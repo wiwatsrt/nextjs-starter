@@ -36,7 +36,7 @@ export const UserDropdown = () => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="w-56 mt-2 origin-top-right absolute right-0 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none">
+              <Menu.Items className="w-48 mt-2 origin-top-right absolute right-0 bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none">
                 <div className="py-1">
                   <Menu.Item>
                     {({ active }) => (
