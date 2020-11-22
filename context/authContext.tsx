@@ -7,8 +7,8 @@ import { removeAuthCookie, setAuthCookie } from '../utils/auth/userCookies'
 const AuthContext = createContext<AuthContextProvider>({
   auth: null,
   loading: true,
-  signOut: async () => {},
-  signInWithEmailAndPassword: async () => {},
+  signOut: async () => undefined,
+  signInWithEmailAndPassword: async () => undefined,
 })
 
 const formatAuthState = (user: firebase.User): AuthUser => ({
