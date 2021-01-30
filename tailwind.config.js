@@ -1,13 +1,6 @@
-const plugin = require('tailwindcss/plugin')
-const hexRgb = require('hex-rgb')
-
-function rgba(hex, alpha) {
-  const { red, green, blue } = hexRgb(hex)
-  return `rgba(${red}, ${green}, ${blue}, ${alpha})`
-}
-
 module.exports = {
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+  darkMode: false,
   theme: {
     extend: {
       colors: {
@@ -37,80 +30,12 @@ module.exports = {
           900: '#161e2e',
         },
       },
-      boxShadow: (theme) => ({
-        focus: `0 0 0 3px ${rgba(theme('colors.primary.300'), '.45')}`,
-      }),
-      maxWidth: {
-        '7xl': '80rem',
-      },
-      height: {
-        96: '24rem',
-      },
     },
-    customForms: (theme) => ({
-      default: {
-        'checkbox, input, textarea, multiselect, select': {
-          '&:focus': {
-            outline: 'none',
-            boxShadow: `0 0 0 3px ${rgba(theme('colors.primary.300'), '.45')}`,
-            borderColor: theme('colors.primary.300'),
-          },
-        },
-        checkbox: {
-          color: theme('colors.primary.500'),
-        },
-      },
-    }),
+  },
+  variants: {
+    extend: {},
   },
   plugins: [
-    require('@tailwindcss/custom-forms'),
-    plugin(function ({ addComponents, theme }) {
-      const buttons = {
-        '.button': {
-          padding: '.5rem 1rem',
-          borderWidth: theme('borderWidth.default'),
-          borderColor: theme('borderColor.transparent'),
-          borderRadius: theme('borderRadius.md'),
-          fontWeight: '600',
-          fontSize: theme('fontSize.sm'),
-          '&:focus': {
-            outline: 'none',
-          },
-        },
-        '.button-primary': {
-          backgroundColor: theme('colors.primary.600'),
-          color: theme('colors.white'),
-          '&:focus': {
-            boxShadow: `0 0 0 3px ${rgba(theme('colors.primary.300'), '.45')}`,
-          },
-          '&:hover': {
-            backgroundColor: theme('colors.primary.500'),
-            borderColor: theme('colors.primary.300'),
-          },
-        },
-      }
-      const table = {
-        '.table': {
-          minWidth: '100%',
-        },
-        '.table th': {
-          padding: '.75rem 1.5rem ',
-          fontWeight: '500',
-          color: theme('colors.gray.500'),
-          backgroundColor: theme('colors.gray.50'),
-        },
-        '.table td': {
-          padding: '1rem 1.5rem ',
-          color: theme('colors.gray.500'),
-          whiteSpace: 'nowrap',
-        },
-      }
-
-      addComponents([buttons, table])
-    }),
+    require('@tailwindcss/forms'),
   ],
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
 }
