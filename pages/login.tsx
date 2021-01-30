@@ -12,7 +12,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (auth) {
-      router.push('/')
+      router.push('/dashboard')
     }
   }, [auth])
 
@@ -20,7 +20,7 @@ const LoginPage = () => {
     e.preventDefault()
     try {
       await signInWithEmailAndPassword(email, password)
-      router.push('/')
+      router.push('/dashboard')
     } catch (error) {
       console.error(error)
     }
