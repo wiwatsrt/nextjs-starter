@@ -10,6 +10,6 @@ describe('Home page', () => {
 
   it('renders hello world', () => {
     const { getByText } = render(<Home />, {})
-    expect(getByText('Hello world!'));
+    expect(getByText('Hello world!'))
   })
 })
