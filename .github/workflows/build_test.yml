@@ -18,10 +18,11 @@ jobs:
         node-version: [14.x, 16.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -30,7 +31,7 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -39,7 +40,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node-modules-cache
         with:
           path: node_modules
